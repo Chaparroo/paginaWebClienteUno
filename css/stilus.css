@@ -22,12 +22,22 @@
         *background-color: red;
     display: flex;
     flex-wrap: wrap;
-    width: 600px;
+    width: 500px;
     align-items: center;
     justify-content: space-around;
     }
-        .nav__link--uppercase{
+        .nav__link{
             text-decoration: none;
             text-transform: capitalize;
-
+            padding: 5px 30px;
+            border-right:solid rgb(0, 0, 0) 3px ;
+            *box-shadow:  5px 0px 0px 0px black;
         }
+        .nav__link--noline{
+            text-decoration: none;
+            text-transform: capitalize;
+            padding: 5px 30px;
+            *border-right:solid royalblue 1px ;
+          
+        }
+       
