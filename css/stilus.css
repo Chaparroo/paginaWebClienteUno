@@ -64,11 +64,12 @@
     }
 
 .gallery{
+    margin-top: 50px;
     width: 95%;
-    max-width: 1200px;
+    max-width: 1800px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rebeccapurple;
+    *background-color: rebeccapurple;
     display: grid;
     grid-template-columns: repeat(auto-fit,200px);
     justify-content: center;
@@ -78,7 +79,8 @@
     .gallery__item{
         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
         grid-column: span 2;
-        height: 401px;
+        *height: 401px;
+        height: 500px;
     }
         img{
             width: 100%;
@@ -86,3 +88,16 @@
             object-fit: cover;
         }
 
+    .gallery__item:first-of-type{
+        grid-column: 2/span 2;
+    }
+
+    /* medias */
+    @media screen and (min-width:270px)and (max-width:300px){
+        .gallery__item:first-of-type{
+            grid-column: 1/span 2;
+        }
+        .gallery{
+            grid-auto-rows: 500px;
+        }
+    }
