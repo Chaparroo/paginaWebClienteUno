@@ -27,6 +27,7 @@ itemsgallery.forEach(item=>{
   item.addEventListener("mousemove",function (e) {
     thePersecutor.style.left=`${e.pageX}px`;
     thePersecutor.style.top=`${e.pageY}px`;
+    //thePersecutor.style.transition: all 0.8s ease;
   });
 })
 /*gallery.addEventListener("mousemove",function (e) {

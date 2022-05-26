@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&family=Roboto:wght@100;300;400;700&display=swap');
+
+/*basic custom*/
+
 *{
     font-family: 'Roboto', sans-serif;
     cursor: none;
@@ -6,6 +9,9 @@
 body{
     background-color: #111;
 }
+
+/*header img,h1,name,nav*/
+
 .header{
     display: flex;
     flex-wrap: wrap;
@@ -16,21 +22,72 @@ body{
     .header__logo--img{
         width: 225px;
     }
+
+    /*frase h1*/
+
+    .header__phrase{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
     .header__phrase h1{
         color: #fff;
         text-transform: uppercase;
         text-decoration: line-through;
         letter-spacing: 1px;
         font-size:  large;
-        margin-bottom: 30px;
+        
     }
+
+    /*nombre */
+
+    .header__phrase p:before{
+        content: "";
+        display: block;
+        background-color: #fff;
+        width: 100%;
+        height: 1px;
+        margin-bottom: 2px;
+        transition: all .3s ease-out ;
+    }
+    .header__phrase p{
+        color: #fff;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        font-size:  large;
+        transition: all 0.5s ease;
+    }
+    .header__phrase p:after{
+        content: "";
+        display: block;
+        background-color: #fff;
+        width: 100%;
+        height: 1px;
+        margin-top: 2px;
+        transition: all .3s ease-out ;
+    }
+    .header__phrase p:hover:before{
+        animation: move 2s ease-in-out alternate 2;
+    }
+    .header__phrase p:hover{
+        color: #fff;
+        z-index: 5;
+        transform: scale(1.4);
+    }
+    .header__phrase p:hover:after{
+        animation: moveafter 2s ease-in-out alternate 2;
+    }
+
+    /*nav*/
+
     .header__nav{
     display: flex;
     flex-wrap: wrap;
     width: 500px;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     }
         .nav__link{
             color: #fff;
@@ -39,10 +96,13 @@ body{
             padding: 5px 30px;
             border-bottom:solid rgb(255, 255, 255) 3px ;
         }
+
+    /*custom cursor*/
+
     .cursor{
         width: 2em  ;
         height: 2em;
-        border: 2px  solid #fff;
+        border: 2px  solid #eee;
         border-radius: 50%;
         position: absolute;
         transform: translate(-50%,-50%);
@@ -51,8 +111,6 @@ body{
         transition-property: background,transform,color,border;
         transform-origin: 100% 100%;
         z-index: 2;
-        /*backdrop-filter: grayscale();*/
-      
     }
     .link-clicleable{
         transform: scale(2);
@@ -66,8 +124,9 @@ body{
     .hoverlink{
         color:#111;
         border-bottom: solid rgb(17, 17,17) 3px ;
-        
     }
+
+    /*the light persecutor*/
 
     .light{
         position: absolute;
@@ -79,7 +138,11 @@ body{
         filter: blur(50px);
         background:linear-gradient(90deg,#335bf4 0%,#2ae9c9 100%);
         z-index: -5;
+        transition: all 0.1s ease;
     }
+
+    /*grid gallery and formitems*/
+
     .gallery{
         width: 85%;
         max-width: 1200px;
@@ -90,11 +153,11 @@ body{
         grid-auto-rows: 200px;
         justify-content: center;
         gap: 1rem;
-        *position: relative;
         z-index: -3;
     }
         .gallery__item{
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%,0% 25%);
+            *clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             grid-column: span 2;
             height: 282px;
             transition: 0.5 filter;
@@ -111,6 +174,9 @@ body{
     /* medias */
     @media screen and (min-width:270px)and (max-width:521px){
         .header__nav{
+            display: none;
+        }
+        .light{
             display: none;
         }
         .gallery__item{
@@ -156,5 +222,50 @@ body{
             grid-column: 2/span 2;
         }
     }
-    
+
+    /*footer*/
+
+    footer{
+        margin-top: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .footer__allrights p{
+        color: #fff;
+    }
+    .footer_socialmedia a {
+        color: #fff;
+        padding-right: 15px;
+    }
+    .footer_socialmedia a:hover {
+        color: #aaa;
+    }
+
+/*keyframes*/
+
+@keyframes move {
+    0% { 
+        position: relative;
+        top: 0px;
+      }
+    100% {
+        position: relative;
+        top: 13px;
+       
+      }
+    }
+@keyframes moveafter {
+    0% { 
+        position: relative;
+        top: 0px;
+        }
+    100% {
+        position: relative;
+        top: -13px;
+        }
+    }    
+
     
