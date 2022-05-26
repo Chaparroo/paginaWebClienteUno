@@ -1,6 +1,6 @@
 let mausecursor = document.querySelector(".cursor");
 let links = document.querySelectorAll(".header__nav a");
- console.log(links);
+ //console.log(links);
 window.addEventListener("mousemove", cursor);
 function cursor(e) {
   mausecursor.style.top = e.pageY + "px";
@@ -19,4 +19,18 @@ links.forEach(li => {
    
 });
 
+let thePersecutor=document.querySelector(".light");
+let gallery=document.querySelector(".gallery");
+let itemsgallery=document.querySelectorAll(".gallery__item");
+
+itemsgallery.forEach(item=>{
+  item.addEventListener("mousemove",function (e) {
+    thePersecutor.style.left=`${e.pageX}px`;
+    thePersecutor.style.top=`${e.pageY}px`;
+  });
+})
+/*gallery.addEventListener("mousemove",function (e) {
+  thePersecutor.style.left=`${e.pageX}px`;
+  thePersecutor.style.top=`${e.pageY}px`;
+})*/
 
