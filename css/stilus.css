@@ -34,7 +34,7 @@ body{
     .header__phrase h1{
         color: #fff;
         text-transform: uppercase;
-        text-decoration: line-through;
+        *text-decoration: line-through;
         letter-spacing: 1px;
         font-size:  large;
         
@@ -73,7 +73,7 @@ body{
     .header__phrase p:hover{
         color: #fff;
         z-index: 5;
-        transform: scale(1.4);
+        *transform: scale(1.4);
     }
     .header__phrase p:hover:after{
         animation: moveafter 2s ease-in-out alternate 2;
@@ -93,9 +93,23 @@ body{
             color: #fff;
             text-decoration: none;
             text-transform: capitalize;
-            padding: 5px 30px;
-            border-bottom:solid rgb(255, 255, 255) 3px ;
+            padding: 5px 0;
+            *border-bottom:solid rgb(255, 255, 255) 3px ;
+            
         }
+        .nav__link::after{
+            content: "";
+            display: block;
+            background-color: #000;
+            width: 100%;
+            height: 2px;
+            transition: clip-path .8s ease-in-out;
+            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+        }
+        .nav__link:hover::after{
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        
 
     /*custom cursor*/
 
@@ -118,12 +132,11 @@ body{
     }
     a:hover{
         transition: all 0.5s ease;
-        transition-property: color,border;
+        transition-property: color,clip-path;
         z-index: 5;
     }
     .hoverlink{
         color:#111;
-        border-bottom: solid rgb(17, 17,17) 3px ;
     }
 
     /*the light persecutor*/
@@ -171,6 +184,28 @@ body{
         .gallery__item:first-of-type{
             grid-column: 2/span 2;
         }
+    
+    /*footer*/
+
+    footer{
+        margin-top: 150px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .footer__allrights p{
+        color: #fff;
+    }
+    .footer_socialmedia a {
+        color: #fff;
+        padding-right: 15px;
+    }
+    .footer_socialmedia a:hover {
+        color: #aaa;
+    }
+
     /* medias */
     @media screen and (min-width:270px)and (max-width:521px){
         .header__nav{
@@ -223,26 +258,6 @@ body{
         }
     }
 
-    /*footer*/
-
-    footer{
-        margin-top: 200px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-    .footer__allrights p{
-        color: #fff;
-    }
-    .footer_socialmedia a {
-        color: #fff;
-        padding-right: 15px;
-    }
-    .footer_socialmedia a:hover {
-        color: #aaa;
-    }
 
 /*keyframes*/
 
