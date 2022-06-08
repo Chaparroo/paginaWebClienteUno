@@ -1,0 +1,60 @@
+/*nav*/
+
+.header__nav{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 70px;
+    }
+        .nav__link{
+            color: #fff;
+            text-decoration: none;
+            text-transform: capitalize;
+            padding: 5px 0;
+            *border-bottom:solid rgb(255, 255, 255) 3px ;
+            
+        }
+        .nav__link::after{
+            content: "";
+            display: block;
+            background-color: #000;
+            width: 100%;
+            height: 2px;
+            transition: clip-path .8s ease-in-out;
+            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+        }
+        .nav__link:hover::after{
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        
+
+
+/*custom cursor*/
+
+.cursor{
+    width: 2em  ;
+    height: 2em;
+    border: 2px  solid #eee;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    transition: all 0.4s ease;
+    transition-property: background,transform,color,border;
+    transform-origin: 100% 100%;
+    z-index: 2;
+}
+.link-clicleable{
+    transform: scale(2);
+    background: #fff;
+}
+a:hover{
+    transition: all 0.5s ease;
+    transition-property: color,clip-path;
+    z-index: 5;
+}
+.hoverlink{
+    color:#111;
+}
