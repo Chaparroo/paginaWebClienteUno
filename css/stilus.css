@@ -13,11 +13,16 @@ body{
 /*header img,h1,name,nav*/
 
 .header{
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    align-content: center;
     justify-content: center;
+}
+.header__menuBurguer{
+    display: none;
 }
     .header__logo--img{
         width: 225px;
@@ -207,9 +212,22 @@ body{
     }
 
     /* medias */
-    @media screen and (min-width:270px)and (max-width:521px){
-        .header__nav{
-             display: none; 
+    @media screen and (min-width:270px) and (max-width:521px){
+        .header__menuBurguer{
+            *background-color: #335bf4;
+            *visibility: visible;
+            position: fixed;
+            top: 2%;
+            right: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 15;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
         }
         .light{
             display: none;

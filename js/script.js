@@ -1,6 +1,6 @@
 let mausecursor = document.querySelector(".cursor");
 let links = document.querySelectorAll(".header__nav a");
- //console.log(links);
+/*funcionamiento del mause*/
 window.addEventListener("mousemove", cursor);
 function cursor(e) {
   mausecursor.style.top = e.pageY + "px";
@@ -18,7 +18,7 @@ links.forEach(li => {
     });
    
 });
-
+/*funcionamiento del perseguidor*/
 let thePersecutor=document.querySelector(".light");
 let gallery=document.querySelector(".gallery");
 let itemsgallery=document.querySelectorAll(".gallery__item");
@@ -27,7 +27,6 @@ itemsgallery.forEach(item=>{
   item.addEventListener("mousemove",function (e) {
     thePersecutor.style.left=`${e.pageX}px`;
     thePersecutor.style.top=`${e.pageY}px`;
-    //thePersecutor.style.transition: all 0.8s ease;
   });
 })
 /*gallery.addEventListener("mousemove",function (e) {
@@ -35,3 +34,22 @@ itemsgallery.forEach(item=>{
   thePersecutor.style.top=`${e.pageY}px`;
 })*/
 
+/*funcionamiento del menu*/
+let containericon=document.querySelector(".header__menuBurguer");
+let icon=document.getElementById("menuBurguer__icon");
+let nav=document.querySelector(".header__nav");
+console.log(nav)
+containericon.addEventListener('click',()=>{
+
+  if (icon.getAttribute('src') == "./imgs/menu.svg") {
+    icon.removeAttribute('src')
+    icon.setAttribute('src',"./imgs/x.svg")
+    nav.classList.toggle('openmenu');
+    window.scroll(0,0)
+  }else{
+    icon.removeAttribute('src')
+    icon.setAttribute('src',"./imgs/menu.svg")
+    nav.classList.toggle('openmenu');
+    
+  }
+})
